@@ -17,16 +17,11 @@ class Sistema {
     let colorIndex = Math.floor(random(this.colors.length));
     let color = this.colors[colorIndex];
 
-    // Crear partícula de círculo
-    let circleParticle = new Particula(
-      this.pos.x,
-      this.pos.y,
-      color,
-      "circle"
-    );
+    // Crear partícula círculo
+    let circleParticle = new Particula(this.pos.x, this.pos.y, color, "circle");
     this.ps.push(circleParticle);
 
-    // Crear partícula de rectángulo
+    // Crear partícula rectángulo
     let rectangleParticle = new Particula(
       this.pos.x,
       this.pos.y,
@@ -35,7 +30,7 @@ class Sistema {
     );
     this.ps.push(rectangleParticle);
 
-    // Crear partícula de triángulo
+    // Crear partícula triángulo
     let triangleParticle = new Particula(
       this.pos.x,
       this.pos.y,
@@ -44,6 +39,7 @@ class Sistema {
     );
     this.ps.push(triangleParticle);
 
+    // Eliminar partículas muertas del array
     for (let i = this.ps.length - 1; i >= 0; i--) {
       if (!this.ps[i].isAlive) {
         this.ps.splice(i, 1);
